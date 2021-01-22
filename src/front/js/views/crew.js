@@ -11,21 +11,20 @@ export const Crew = () => {
 		fetch("https://www.swapi.tech/api/people/")
 			.then(resp => resp.json())
 			.then(data => {
-				debugger;
-
 				setCharacters(data.results);
 			});
 	}, []);
 
+	const listItems = characters.map((c, index) => (
+		<li key={index}>
+			<Character url={c.url} />
+		</li>
+	));
+
 	return (
 		<div className="text-center mt-5">
 			<h1>Hello Rigo!</h1>
-
-			<ul>
-				{characters.map((c, index) => {
-					return <Character key={index} data={c} />;
-				})}
-			</ul>
+			<ul>{listItems}</ul>
 		</div>
 	);
 };

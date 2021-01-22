@@ -2,24 +2,20 @@ import React, { Component, useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
 export const Character = props => {
+	const [info, setInfo] = useState(null);
+
 	useEffect(() => {
-		fetch(props.url, {
-			mode: "no-cors"
-		})
+		fetch(props.url)
 			.then(resp => resp.json())
 			.then(data => {
-				debugger;
-				data;
+				setInfo(data.result.properties);
 			});
 	}, []);
 
 	return (
-		<div>
-			<ul>
-				<li>Name : {""}</li>
-				<li>Gender : {""} </li>
-			</ul>
-		</div>
+		<ul>
+			<li>Name : {info ? info.name : ""}</li>
+		</ul>
 	);
 };
 
