@@ -15,6 +15,8 @@ export const Character = props => {
 	return (
 		<ul>
 			<li>Name : {info ? info.name : ""}</li>
+			<li>Gender : {info ? info.gender : ""}</li>
+			<li>Hair color : {info ? info.hair_color : ""}</li>
 		</ul>
 	);
 };
