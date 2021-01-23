@@ -19,7 +19,7 @@ export const Crew = () => {
 	}, []);
 
 	const listItems = characters.map((c, index) => (
-		<Card className="card col-5" key={index}>
+		<Card className="card col-3 text-left align-items-center" key={index}>
 			<Character url={c.url} />
 		</Card>
 	));
@@ -27,8 +27,8 @@ export const Crew = () => {
 	return (
 		<div className="text-center mt-5">
 			<h1>Hello Rigo!</h1>
-			<div className="container-fluid py-2 center" style={{ width: "80%" }}>
-				<div className="scrolling-wrapper row flex-row flex-nowrap mt-4 pb-4 pt-2">{listItems}</div>
+			<div className="container">
+				<div className="scrolling-wrapper row flex-row flex-nowrap ">{listItems}</div>
 			</div>
 		</div>
 	);

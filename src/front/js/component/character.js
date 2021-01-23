@@ -14,20 +14,31 @@ export const Character = props => {
 			});
 	}, []);
 
+	const [heart, setHeart] = useState("");
+	if (heart == "selected") {
+		var heartFill = "bi bi-heart";
+	} else {
+		var heartFill = "bi bi-heart-fill";
+	}
+
 	return (
 		<div>
-			<Card.Img variant="top" src="https://lorempixel.com/400/200" />
+			<Card.Img variant="top" src="http://placehold.it/400x200" />
 			<Card.Body>
-				<Card.Title>Name : {info ? info.name : ""}</Card.Title>
+				<Card.Title>{info ? info.name : ""}</Card.Title>
 				<Card.Text>
-					<ul>
-						<li>Gender : {info ? info.gender : ""}</li>
-						<li>Hair color : {info ? info.hair_color : ""}</li>
+					<ul className="text-left p-0">
+						<li className="list-unstyled">Gender : {info ? info.gender : ""}</li>
+						<li className="list-unstyled">Hair color : {info ? info.hair_color : ""}</li>
+						<li className="list-unstyled">Eye-Color : {info ? info.eye_color : ""}</li>
 					</ul>
 				</Card.Text>
 			</Card.Body>
-			<Card.Footer>
-				<Button variant="outline-primary">Primary</Button> <Button variant="outline-warning">L</Button>{" "}
+			<Card.Footer className="d-flex justify-content-between">
+				<Button variant="outline-primary">Learn more!</Button>
+				<Button variant="outline-warning " onClick={() => setHeart("selected")}>
+					<i className={heartFill} />
+				</Button>{" "}
 			</Card.Footer>
 		</div>
 	);
