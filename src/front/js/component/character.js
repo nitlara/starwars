@@ -34,7 +34,7 @@ export const Character = props => {
 					</ul>
 				</Card.Text>
 			</Card.Body>
-			<Card.Footer className="d-flex justify-content-between">
+			<Card.Footer className="d-flex justify-content-between bg-white border-0">
 				<Button variant="outline-primary">Learn more!</Button>
 				<Button variant="outline-warning " onClick={() => setHeart("selected")}>
 					<i className={heartFill} />
