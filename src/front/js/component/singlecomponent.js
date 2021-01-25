@@ -1,10 +1,12 @@
 import React, { Component, useState, useEffect } from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
+import { Character } from "../component/character";
 import "../../styles/_colors.scss";
-import { Jumbotron, Col, Container, Row, Image } from "react-bootstrap";
+import { Jumbotron, Col, Container, Row, Image, Button } from "react-bootstrap";
 
 export const SingleJumbo = props => {
-	const [one, setOne] = useState(null);
+	const [one, setOne] = useState();
 
 	useEffect(() => {
 		fetch(props.url)
@@ -13,7 +15,7 @@ export const SingleJumbo = props => {
 				setOne(data.result);
 			});
 	}, []);
-
+	//console.log(result, "RESULT"); RESULT = UNDEFINED
 	return (
 		<Jumbotron className="mx-5">
 			<Container>
@@ -55,10 +57,16 @@ export const SingleJumbo = props => {
 					</Col>
 				</Row>
 			</Container>
+			<div className="d-flex justify-content-start align-item-end">
+				<Link to="/">
+					<Button className="btn btn-dark">Back home</Button>
+				</Link>
+			</div>
 		</Jumbotron>
 	);
 };
 
 SingleJumbo.propTypes = {
-	url: PropTypes.string
+	url: PropTypes.string,
+	uid: PropTypes.string
 };

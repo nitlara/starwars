@@ -5,7 +5,6 @@ import rigoImage from "../../img/rigo-baby.jpg";
 import "../../styles/home.scss";
 import Card from "react-bootstrap/Card";
 import CardDeck from "react-bootstrap/CardDeck";
-import Carousel from "react-bootstrap/Carousel";
 
 export const Crew = () => {
 	const [characters, setCharacters] = useState([]);
@@ -20,13 +19,12 @@ export const Crew = () => {
 
 	const listItems = characters.map((c, index) => (
 		<Card className="card col-3 text-left align-items-center" key={index}>
-			<Character url={c.url} />
+			<Character uid={c.uid} />
 		</Card>
 	));
 
 	return (
 		<div className="text-center mt-5">
-			<h1>Hello Rigo!</h1>
 			<div className="container">
 				<div className="scrolling-wrapper row flex-row flex-nowrap ">{listItems}</div>
 			</div>
