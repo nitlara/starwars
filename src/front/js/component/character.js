@@ -2,10 +2,10 @@ import React, { Component, useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
+import ToggleHeart from "./heart";
 
 export const Character = props => {
 	const [info, setInfo] = useState(null);
-
 	useEffect(() => {
 		fetch(props.url)
 			.then(resp => resp.json())
@@ -13,14 +13,6 @@ export const Character = props => {
 				setInfo(data.result.properties);
 			});
 	}, []);
-	//var heartStarted = false;
-	//const [clicked, setClicked] = useState();
-	// heartOnClick = event => {
-	// 	//cambiar true o false clicked <-- not working now
-	// 	heartStarted = !heartStarted;
-	// 	setClicked(clicked);
-	// };
-	///onclick -->* {clicked ? "bi bi-heart-fill" : "bi bi-heart"} */
 
 	return (
 		<div>
@@ -36,10 +28,8 @@ export const Character = props => {
 				</Card.Text>
 			</Card.Body>
 			<Card.Footer className="d-flex justify-content-between bg-white border-0">
-				<Button variant="outline-primary">Learn more!</Button>
-				<Button variant="outline-warning">
-					<i className="bi bi-heart" />
-				</Button>
+				<Button variant="outline-primary">Learn more! </Button>
+				<ToggleHeart />
 			</Card.Footer>
 		</div>
 	);
