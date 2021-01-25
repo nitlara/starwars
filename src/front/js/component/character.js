@@ -16,18 +16,12 @@ export const Character = props => {
 			});
 	}, []);
 
-	//var heartStarted = false;
-	//const [clicked, setClicked] = useState();
-	// heartOnClick = event => {
-	// 	//cambiar true o false clicked <-- not working now
-	// 	heartStarted = !heartStarted;
-	// 	setClicked(clicked);
-	// };
-	///onclick -->* {clicked ? "bi bi-heart-fill" : "bi bi-heart"} */
-
 	return (
 		<div>
-			<Card.Img variant="top" src="http://placehold.it/400x200" />
+			<Card.Img
+				variant="top"
+				src="https://cdn.computerhoy.com/sites/navi.axelspringer.es/public/styles/400x400/public/media/image/2020/02/yoda-star-wars-1859043.jpg?itok=I6udHO_e"
+			/>
 			<Card.Body>
 				<Card.Title>{info ? info.properties.name : ""}</Card.Title>
 				<Card.Text>
@@ -40,7 +34,7 @@ export const Character = props => {
 			</Card.Body>
 
 			<Card.Footer className="d-flex justify-content-between bg-white border-0">
-				{clicked ? <Redirect to={"/single"} /> : <></>}
+				{clicked ? <Redirect to={`/single/${info.uid}`} /> : <></>}
 				<Button variant="outline-primary" onClick={() => setClicked(true)}>
 					{"Learn more!"}
 				</Button>

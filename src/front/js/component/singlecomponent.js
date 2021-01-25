@@ -5,17 +5,17 @@ import { Character } from "../component/character";
 import "../../styles/_colors.scss";
 import { Jumbotron, Col, Container, Row, Image, Button } from "react-bootstrap";
 
-export const SingleJumbo = () => {
+export const SingleJumbo = props => {
 	const [one, setOne] = useState();
 
 	useEffect(() => {
-		fetch(`https://www.swapi.tech/api/people/${props.uid}`)
+		fetch(props.url)
 			.then(resp => resp.json())
 			.then(data => {
 				setOne(data.result);
 			});
 	}, []);
-
+	//console.log(result, "RESULT"); RESULT = UNDEFINED
 	return (
 		<Jumbotron className="mx-5">
 			<Container>
