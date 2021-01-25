@@ -1,7 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Context } from "../store/appContext";
 import { Character } from "../component/character";
-import rigoImage from "../../img/rigo-baby.jpg";
 import "../../styles/home.scss";
 import Card from "react-bootstrap/Card";
 import CardDeck from "react-bootstrap/CardDeck";
