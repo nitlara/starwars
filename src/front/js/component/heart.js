@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 
 export const ToggleHeart = () => {
 	const [fill, setFill] = useState(false);
-	//const { store, actions } = useContext(Context);
+	const { store, actions } = useContext(Context);
 
 	return (
 		<div>
@@ -22,7 +22,7 @@ export const ToggleHeart = () => {
 				<Button
 					className="btn btn-warning"
 					onClick={() => {
-						setFill(!fill);
+						setFill(!fill), addFavs();
 					}}>
 					<i className="bi bi-heart-fill" />
 				</Button>
