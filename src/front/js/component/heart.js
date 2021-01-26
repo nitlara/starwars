@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { Context } from "../store/appContext";
+import PropTypes from "prop-types";
 import Button from "react-bootstrap/Button";
 
-const ToggleHeart = () => {
+export const ToggleHeart = () => {
 	const [fill, setFill] = useState(false);
+	//const { store, actions } = useContext(Context);
 
 	return (
 		<div>
@@ -27,5 +30,3 @@ const ToggleHeart = () => {
 		</div>
 	);
 };
-
-export default ToggleHeart;

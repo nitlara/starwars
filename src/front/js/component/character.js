@@ -1,18 +1,14 @@
 import React, { Component, useState, useEffect } from "react";
 import PropTypes from "prop-types";
+import { Context } from "../store/appContext";
 import { Redirect } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import ToggleHeart from "./heart";
-
-
-
+import { ToggleHeart } from "./heart";
 
 export const Character = props => {
 	const [info, setInfo] = useState(null);
 	const [clicked, setClicked] = useState(false);
-
-
 
 	useEffect(() => {
 		fetch(`https://www.swapi.tech/api/people/${props.uid}`)
@@ -40,13 +36,11 @@ export const Character = props => {
 			</Card.Body>
 
 			<Card.Footer className="d-flex justify-content-between bg-white border-0">
-
 				{clicked ? <Redirect to={`/single/${info.uid}`} /> : <></>}
 				<Button variant="outline-primary" onClick={() => setClicked(true)}>
 					{"Learn more!"}
 				</Button>
 				<ToggleHeart />
-
 			</Card.Footer>
 		</div>
 	);

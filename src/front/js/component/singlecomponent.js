@@ -1,21 +1,27 @@
 import React, { Component, useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
-import { Character } from "../component/character";
+import { Context } from "../store/appContext";
+import { Link, useParams } from "react-router-dom";
 import "../../styles/_colors.scss";
 import { Jumbotron, Col, Container, Row, Image, Button } from "react-bootstrap";
 
 export const SingleJumbo = props => {
 	const [one, setOne] = useState();
 
-	useEffect(() => {
-		fetch(props.url)
-			.then(resp => resp.json())
-			.then(data => {
-				setOne(data.result);
-			});
-	}, []);
-	//console.log(result, "RESULT"); RESULT = UNDEFINED
+	const { id } = useParams();
+
+	useEffect(
+		() => {
+			fetch(`https://www.swapi.tech/api/people/${id}`)
+				.then(resp => resp.json())
+				.then(data => {
+					setOne(data.result);
+					console.log(data.result);
+				});
+		},
+		[id]
+	);
+
 	return (
 		<Jumbotron className="mx-5">
 			<Container>
