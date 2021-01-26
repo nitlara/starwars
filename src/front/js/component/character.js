@@ -4,11 +4,11 @@ import { Context } from "../store/appContext";
 import { Redirect } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import { ToggleHeart } from "./heart";
 
 export const Character = props => {
 	const [info, setInfo] = useState(null);
 	const [clicked, setClicked] = useState(false);
+	const [fill, setFill] = useState(false);
 
 	useEffect(() => {
 		fetch(`https://www.swapi.tech/api/people/${props.uid}`)
@@ -40,7 +40,26 @@ export const Character = props => {
 				<Button variant="outline-primary" onClick={() => setClicked(true)}>
 					{"Learn more!"}
 				</Button>
-				<ToggleHeart />
+				<div>
+					{!fill && (
+						<Button
+							className="btn btn-warning"
+							onClick={() => {
+								setFill(!fill);
+							}}>
+							<i className="bi bi-heart" />
+						</Button>
+					)}
+					{fill && (
+						<Button
+							className="btn btn-warning"
+							onClick={() => {
+								setFill(!fill);
+							}}>
+							<i className="bi bi-heart-fill" />
+						</Button>
+					)}
+				</div>
 			</Card.Footer>
 		</div>
 	);
