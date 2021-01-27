@@ -20,6 +20,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				//get the store
 				let store = getStore(); //traes store disponible
 				store.favorites.push(favorite);
+
 				setStore({ favorites: store.favorites });
 			},
 			deleteFavs: favorite => {
@@ -27,6 +28,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 				let newStore = store.favorites.filter(element => element != favorite);
 				setStore({ favorites: newStore });
 			}
+
+
+			// removeFavs: () => {
+
+			//     const store = getStore();
+
+			//     const removeFav = store.favourites.filter() => {
+
+			//         //metodos filter?? splice?? slice! ver proyecto todolist remove??
+			//     }
+			// )},
+			//reset the global store
+			// setStore({ demo: demo });
+
 		}
 	};
 };
