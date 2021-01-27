@@ -9,13 +9,13 @@ export const Home = () => {
 	//const [store, actions] = useContext(Context);
 
 	return (
-		<div className="text-left ml-5 text-danger">
+		<div className="text-left text-danger">
 			<h1 className="titletext">Characters</h1>
-			<p>
-				<Crew />
-			</p>
+			<Crew />
 			<h1 className="titletext">Planets</h1>
+			{/* <Planets /> */}
 			<h1 className="titletext">Starships</h1>
+			{/* <Starships /> */}
 		</div>
 	);
 };
