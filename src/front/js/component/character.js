@@ -4,12 +4,10 @@ import { Context } from "../store/appContext";
 import { Redirect } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import { ToggleHeart } from "./heart";
 
 export const Character = props => {
 	const [info, setInfo] = useState(null);
 	const [clicked, setClicked] = useState(false);
-	const [fill, setFill] = useState(false);
 	const { store, actions } = useContext(Context);
 
 	useEffect(() => {
@@ -20,18 +18,7 @@ export const Character = props => {
 			});
 	}, []);
 
-	// useEffect(
-	// 	() => {
-	// 		info ? checkFav(props.name) : null;
-	// 	},
-	// 	[store.favorites]
-	// );
-
-	// const checkFav = favorite => {
-	// 	var newCheckedFav = store.favorites.filter(element => element == favorite);
-	// 	console.log(newCheckedFav);
-	// 	newCheckedFav.length() == 0 ? setFill(false) : setFill(true);
-	// };
+	const fill = store.favorites.find(element => element === props.name) !== undefined;
 
 	return (
 		<div>
@@ -60,7 +47,7 @@ export const Character = props => {
 						<Button
 							className="btn btn-warning"
 							onClick={() => {
-								setFill(!fill);
+								// setFill(!fill);
 								actions.addFavs(info.properties.name);
 							}}>
 							<i className="bi bi-heart" />
@@ -70,7 +57,7 @@ export const Character = props => {
 						<Button
 							className="btn btn-warning"
 							onClick={() => {
-								setFill(!fill);
+								// setFill(!fill);
 								actions.deleteFavs(info.properties.name);
 							}}>
 							<i className="bi bi-heart-fill" />

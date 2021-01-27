@@ -7,6 +7,7 @@ import { Button, Dropdown } from "react-bootstrap";
 //FUNCION PARA DESPLEGAR LA LISTA DE FAVORITOS CON CONTEXT
 export const FavouritesList = () => {
 	const { store, actions } = useContext(Context);
+
 	const allFavs = store.favorites.map((item, index) => {
 		return (
 			<Dropdown.Item key={index} className="list-group-item d-flex justify-content-between">
