@@ -16,9 +16,7 @@ export const Navbar = () => {
 			<div className="ml-auto">
 				<Link to="/demo">
 					<button className="btn btn-primary mx-5">
-						<span className="badge badge-secondary badge-pill">
-							<FavouritesList />
-						</span>
+						<span className="badge badge-secondary badge-pill" />
 					</button>
 				</Link>
 			</div>
