@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from "react";
+import React, { Component, useState, useEffect, useContext } from "react";
 import PropTypes from "prop-types";
 import { Context } from "../store/appContext";
 import { Redirect } from "react-router-dom";
@@ -9,6 +9,8 @@ import { ToggleHeart } from "./heart";
 export const Character = props => {
 	const [info, setInfo] = useState(null);
 	const [clicked, setClicked] = useState(false);
+	const [fill, setFill] = useState(false);
+	const { store, actions } = useContext(Context);
 
 	useEffect(() => {
 		fetch(`https://www.swapi.tech/api/people/${props.uid}`)
@@ -17,6 +19,19 @@ export const Character = props => {
 				setInfo(data.result);
 			});
 	}, []);
+
+	// useEffect(
+	// 	() => {
+	// 		info ? checkFav(props.name) : null;
+	// 	},
+	// 	[store.favorites]
+	// );
+
+	// const checkFav = favorite => {
+	// 	var newCheckedFav = store.favorites.filter(element => element == favorite);
+	// 	console.log(newCheckedFav);
+	// 	newCheckedFav.length() == 0 ? setFill(false) : setFill(true);
+	// };
 
 	return (
 		<div>
@@ -40,7 +55,28 @@ export const Character = props => {
 				<Button variant="outline-primary" onClick={() => setClicked(true)}>
 					{"Learn more!"}
 				</Button>
-				<ToggleHeart />
+				<div>
+					{!fill && (
+						<Button
+							className="btn btn-warning"
+							onClick={() => {
+								setFill(!fill);
+								actions.addFavs(info.properties.name);
+							}}>
+							<i className="bi bi-heart" />
+						</Button>
+					)}
+					{fill && (
+						<Button
+							className="btn btn-warning"
+							onClick={() => {
+								setFill(!fill);
+								actions.deleteFavs(info.properties.name);
+							}}>
+							<i className="bi bi-heart-fill" />
+						</Button>
+					)}
+				</div>
 			</Card.Footer>
 		</div>
 	);
@@ -48,5 +84,6 @@ export const Character = props => {
 
 Character.propTypes = {
 	url: PropTypes.string,
-	uid: PropTypes.string
+	uid: PropTypes.string,
+	name: PropTypes.string
 };

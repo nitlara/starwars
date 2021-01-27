@@ -3,22 +3,13 @@ import { Context } from "../store/appContext";
 import { Character } from "../component/character";
 import "../../styles/home.scss";
 import Card from "react-bootstrap/Card";
-import CardDeck from "react-bootstrap/CardDeck";
 
 export const Crew = () => {
-	const [characters, setCharacters] = useState([]);
+	const { store, actions } = useContext(Context);
 
-	useEffect(() => {
-		fetch("https://www.swapi.tech/api/people/")
-			.then(resp => resp.json())
-			.then(data => {
-				setCharacters(data.results);
-			});
-	}, []);
-
-	const listItems = characters.map((c, index) => (
+	const listItems = store.characters.map((c, index) => (
 		<Card className="card col-3 text-left align-items-center" key={index}>
-			<Character uid={c.uid} />
+			<Character uid={c.uid} name={c.name} />
 		</Card>
 	));
 

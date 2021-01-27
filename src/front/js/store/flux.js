@@ -2,37 +2,31 @@ const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			message: null,
-			favourites: [],
+			characters: [],
+			favorites: [],
 			fill: false
 		},
 
 		actions: {
-			getInformation: () => {
+			getCharacters: () => {
 				// fetching data from the backend
 				fetch("https://www.swapi.tech/api/people/")
 					.then(resp => resp.json())
-					.then(data => setStore({ message: data.message }))
+					.then(data => setStore({ characters: data.results }))
 					.catch(error => console.log("Error loading message from backend", error));
 			},
-			addFavs: () => {
+			addFavs: favorite => {
+				//introduce el parametro
 				//get the store
-				const store = getStore();
-
-				const favsList = store.favourites.push((elm, i) => {
-					fill ? fill : favsList;
-				});
+				let store = getStore(); //traes store disponible
+				store.favorites.push(favorite);
+				setStore({ favorites: store.favorites });
+			},
+			deleteFavs: favorite => {
+				let store = getStore();
+				let newStore = store.favorites.filter(element => element != favorite);
+				setStore({ favorites: newStore });
 			}
-			// removeFavs: () => {
-
-			//     const store = getStore();
-
-			//     const removeFav = store.favourites.filter() => {
-
-			//         //metodos filter?? splice?? remove??
-			//     }
-			// )},
-			//reset the global store
-			// setStore({ demo: demo });
 		}
 	};
 };
