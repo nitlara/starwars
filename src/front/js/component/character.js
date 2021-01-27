@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from "react";
+import React, { useContext, Component, useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { Context } from "../store/appContext";
 import { Redirect } from "react-router-dom";
@@ -9,6 +9,7 @@ export const Character = props => {
 	const [info, setInfo] = useState(null);
 	const [clicked, setClicked] = useState(false);
 	const [fill, setFill] = useState(false);
+	const { store, actions } = useContext(Context);
 
 	useEffect(() => {
 		fetch(`https://www.swapi.tech/api/people/${props.uid}`)
@@ -46,6 +47,7 @@ export const Character = props => {
 							className="btn btn-warning"
 							onClick={() => {
 								setFill(!fill);
+								actions.addFavs(info.properties.name);
 							}}>
 							<i className="bi bi-heart" />
 						</Button>
@@ -55,6 +57,7 @@ export const Character = props => {
 							className="btn btn-warning"
 							onClick={() => {
 								setFill(!fill);
+								actions.deleteFavs(info.properties.name);
 							}}>
 							<i className="bi bi-heart-fill" />
 						</Button>
