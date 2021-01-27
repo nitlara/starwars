@@ -8,7 +8,6 @@ import { Button, Dropdown } from "react-bootstrap";
 export const FavoritesList = () => {
 
 	const { store, actions } = useContext(Context);
-
 	const allFavs = store.favorites.map((item, index) => {
 		return (
 			<Dropdown.Item key={index} className="list-group-item d-flex justify-content-between">
