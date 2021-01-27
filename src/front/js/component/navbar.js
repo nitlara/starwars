@@ -1,5 +1,5 @@
 import React from "react";
-import FavouritesList from "./favouriteslist";
+import { FavouritesList } from "./favouriteslist";
 import { Link } from "react-router-dom";
 
 export const Navbar = () => {
@@ -14,11 +14,9 @@ export const Navbar = () => {
 				</span>
 			</Link>
 			<div className="ml-auto">
-				<Link to="/demo">
-					<button className="btn btn-primary mx-5">
-						<span className="badge badge-secondary badge-pill" />
-					</button>
-				</Link>
+
+				<FavouritesList />
+
 			</div>
 		</nav>
 	);

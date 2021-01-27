@@ -1,3 +1,4 @@
+
 import React, { useContext, Component, useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { Context } from "../store/appContext";
@@ -18,6 +19,19 @@ export const Character = props => {
 				setInfo(data.result);
 			});
 	}, []);
+
+	// useEffect(
+	// 	() => {
+	// 		info ? checkFav(props.name) : null;
+	// 	},
+	// 	[store.favorites]
+	// );
+
+	// const checkFav = favorite => {
+	// 	var newCheckedFav = store.favorites.filter(element => element == favorite);
+	// 	console.log(newCheckedFav);
+	// 	newCheckedFav.length() == 0 ? setFill(false) : setFill(true);
+	// };
 
 	return (
 		<div>
@@ -72,5 +86,6 @@ export const Character = props => {
 
 Character.propTypes = {
 	url: PropTypes.string,
-	uid: PropTypes.string
+	uid: PropTypes.string,
+	name: PropTypes.string
 };
