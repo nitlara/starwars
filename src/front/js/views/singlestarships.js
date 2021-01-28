@@ -5,7 +5,7 @@ import { setUrlStored } from "../component/character";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 
-export const Single = () => {
+export const SingleStarship = () => {
 	//const [store, actions] = useContext(Context);
 
 	return (
@@ -14,6 +14,6 @@ export const Single = () => {
 		</div>
 	);
 };
-Single.propTypes = {
+SingleStarship.propTypes = {
 	url: PropTypes.string
 };
