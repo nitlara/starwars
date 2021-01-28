@@ -5,13 +5,13 @@ import { Redirect } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 
-export const Planet = props => {
+export const Starship = props => {
 	const [info, setInfo] = useState(null);
 	const [clicked, setClicked] = useState(false);
 	const { store, actions } = useContext(Context);
 
 	useEffect(() => {
-		fetch(`https://www.swapi.tech/api/planets/${props.uid}`)
+		fetch(`https://www.swapi.tech/api/starships/${props.uid}`)
 			.then(resp => resp.json())
 			.then(data => {
 				setInfo(data.result);
@@ -30,11 +30,11 @@ export const Planet = props => {
 				<Card.Title className="text-dark">{info ? info.properties.name : ""}</Card.Title>
 				<Card.Text>
 					<ul className="text-left p-0">
+						<li className="text-dark list-unstyled">Pilots : {info ? info.properties.pilots : ""}</li>
+						<li className="text-dark list-unstyled">Crew : {info ? info.properties.crew : ""}</li>
 						<li className="text-dark list-unstyled">
-							Population : {info ? info.properties.population : ""}
+							Consumables : {info ? info.properties.consumables : ""}
 						</li>
-						<li className="text-dark list-unstyled">Diameter : {info ? info.properties.diameter : ""}</li>
-						<li className="text-dark list-unstyled">Climate : {info ? info.properties.climate : ""}</li>
 					</ul>
 				</Card.Text>
 			</Card.Body>
@@ -69,7 +69,7 @@ export const Planet = props => {
 	);
 };
 
-Planet.propTypes = {
+Starship.propTypes = {
 	url: PropTypes.string,
 	uid: PropTypes.string,
 	name: PropTypes.string

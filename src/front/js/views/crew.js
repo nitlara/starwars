@@ -3,7 +3,6 @@ import { Context } from "../store/appContext";
 import { Character } from "../component/character";
 import "../../styles/home.scss";
 import Card from "react-bootstrap/Card";
-import CardDeck from "react-bootstrap/CardDeck";
 export const Crew = () => {
 	const { store, actions } = useContext(Context);
 
