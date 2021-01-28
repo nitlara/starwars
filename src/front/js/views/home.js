@@ -13,7 +13,7 @@ export const Home = () => {
 			<h1 className="titletext">Characters</h1>
 			<Crew />
 			<h1 className="titletext">Planets</h1>
-			{/* <Planets /> */}
+			<Planets />
 			<h1 className="titletext">Starships</h1>
 			{/* <Starships /> */}
 		</div>

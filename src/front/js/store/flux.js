@@ -3,6 +3,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 		store: {
 			message: null,
 			characters: [],
+			planets: [],
+			starships: [],
 			favorites: [],
 			fill: false
 		},
@@ -13,6 +15,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 				fetch("https://www.swapi.tech/api/people/")
 					.then(resp => resp.json())
 					.then(data => setStore({ characters: data.results }))
+					.catch(error => console.log("Error loading message from backend", error));
+			},
+			getPlanets: () => {
+				// fetching data from the backend
+				fetch("https://www.swapi.tech/api/planets/")
+					.then(resp => resp.json())
+					.then(data => setStore({ planets: data.results }))
+					.catch(error => console.log("Error loading message from backend", error));
+			},
+			getStarships: () => {
+				// fetching data from the backend
+				fetch("https://www.swapi.tech/api/starships/")
+					.then(resp => resp.json())
+					.then(data => setStore({ starships: data.results }))
 					.catch(error => console.log("Error loading message from backend", error));
 			},
 			addFavs: favorite => {
