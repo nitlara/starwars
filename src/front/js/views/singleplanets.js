@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useContext } from "react";
 import PropTypes from "prop-types";
-import { SingleJumbo } from "../component/singlecomponent";
+import { SingleJumbo } from "../component/singlecompplanets";
 import { setUrlStored } from "../component/character";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 
-export const Single = () => {
+export const SinglePlanets = () => {
 	//const [store, actions] = useContext(Context);
 
 	return (
@@ -14,6 +14,6 @@ export const Single = () => {
 		</div>
 	);
 };
-Single.propTypes = {
+SinglePlanets.propTypes = {
 	url: PropTypes.string
 };

@@ -23,6 +23,7 @@ export const Character = props => {
 	return (
 		<div>
 			<Card.Img
+				className="card-top-image"
 				variant="top"
 				src="https://cdn.computerhoy.com/sites/navi.axelspringer.es/public/styles/400x400/public/media/image/2020/02/yoda-star-wars-1859043.jpg?itok=I6udHO_e"
 			/>
@@ -40,7 +41,7 @@ export const Character = props => {
 			</Card.Body>
 
 			<Card.Footer className="d-flex justify-content-between bg-white border-0">
-				{clicked ? <Redirect to={`/single/${info.uid}`} /> : <></>}
+				{clicked ? <Redirect to={`/singlecompcharacter/${info.uid}`} /> : <></>}
 				<Button variant="outline-primary" onClick={() => setClicked(true)}>
 					{"Learn more!"}
 				</Button>
