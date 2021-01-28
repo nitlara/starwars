@@ -4,6 +4,8 @@ import { ContextWrapper } from "../store/appContext.js";
 
 import "../../styles/home.scss";
 import { Crew } from "../views/crew";
+import { Planets } from "../views/planets";
+import { Starships } from "../views/starships";
 
 export const Home = () => {
 	//const [store, actions] = useContext(Context);
@@ -13,9 +15,9 @@ export const Home = () => {
 			<h1 className="titletext">Characters</h1>
 			<Crew />
 			<h1 className="titletext">Planets</h1>
-			{/* <Planets /> */}
+			<Planets />
 			<h1 className="titletext">Starships</h1>
-			{/* <Starships /> */}
+			<Starships />
 		</div>
 	);
 };

@@ -1,14 +1,14 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Context } from "../store/appContext";
-import { Character } from "../component/character";
+import { Planet } from "../component/planet";
 import "../../styles/home.scss";
 import Card from "react-bootstrap/Card";
-export const Crew = () => {
+//import CardDeck from "react-bootstrap/CardDeck";
+export const Planets = () => {
 	const { store, actions } = useContext(Context);
-
-	const listItems = store.characters.map((c, index) => (
-		<Card className="individualcard text-left align-items-center flex-shrink-0 mr-3" key={index}>
-			<Character uid={c.uid} name={c.name} />
+	const listItemsPlanets = store.planets.map((c, index) => (
+		<Card className="individualcard text-left align-items-center flex-shrink-0 mr-3 " key={index}>
+			<Planet uid={c.uid} name={c.name} />
 		</Card>
 	));
 
@@ -16,7 +16,7 @@ export const Crew = () => {
 		<div className="text-center mt-5">
 			<div className="container">
 				<div className="scrolling-wrapper d-flex justify-content-between row flex-row flex-nowrap">
-					{listItems}
+					{listItemsPlanets}
 				</div>
 			</div>
 		</div>

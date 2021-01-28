@@ -1,13 +1,13 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
-
 import { Home } from "./views/home";
 //import { Demo } from "./views/demo";
 import { Crew } from "./views/crew";
+import { Planets } from "./views/planets";
+import { Starships } from "./views/starships";
 import { Single } from "./views/single";
 import injectContext from "./store/appContext";
-
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 
@@ -34,6 +34,12 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/crew">
 							<Crew />
+						</Route>
+						<Route exact path="/planets">
+							<Planets />
+						</Route>
+						<Route exact path="/starships">
+							<Starships />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>
