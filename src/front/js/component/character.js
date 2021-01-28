@@ -1,5 +1,4 @@
-
-import React, { useContext, Component, useState, useEffect } from "react";
+import React, { Component, useState, useEffect, useContext } from "react";
 import PropTypes from "prop-types";
 import { Context } from "../store/appContext";
 import { Redirect } from "react-router-dom";
@@ -9,7 +8,6 @@ import Button from "react-bootstrap/Button";
 export const Character = props => {
 	const [info, setInfo] = useState(null);
 	const [clicked, setClicked] = useState(false);
-	const [fill, setFill] = useState(false);
 	const { store, actions } = useContext(Context);
 
 	useEffect(() => {
@@ -20,18 +18,7 @@ export const Character = props => {
 			});
 	}, []);
 
-	// useEffect(
-	// 	() => {
-	// 		info ? checkFav(props.name) : null;
-	// 	},
-	// 	[store.favorites]
-	// );
-
-	// const checkFav = favorite => {
-	// 	var newCheckedFav = store.favorites.filter(element => element == favorite);
-	// 	console.log(newCheckedFav);
-	// 	newCheckedFav.length() == 0 ? setFill(false) : setFill(true);
-	// };
+	const fill = store.favorites.find(element => element === props.name) !== undefined;
 
 	return (
 		<div>
@@ -43,11 +30,11 @@ export const Character = props => {
 				<Card.Title className="text-dark">{info ? info.properties.name : ""}</Card.Title>
 				<Card.Text>
 					<ul className="text-left p-0">
-						<li className="list-unstyled text-dark">Gender : {info ? info.properties.gender : ""}</li>
-						<li className="list-unstyled text-dark">
+						<li className="text-dark list-unstyled">Gender : {info ? info.properties.gender : ""}</li>
+						<li className="text-dark list-unstyled">
 							Hair color : {info ? info.properties.hair_color : ""}
 						</li>
-						<li className="list-unstyled text-dark">Eye-Color : {info ? info.properties.eye_color : ""}</li>
+						<li className="text-dark list-unstyled">Eye-Color : {info ? info.properties.eye_color : ""}</li>
 					</ul>
 				</Card.Text>
 			</Card.Body>
@@ -62,7 +49,7 @@ export const Character = props => {
 						<Button
 							className="btn btn-warning"
 							onClick={() => {
-								setFill(!fill);
+								// setFill(!fill);
 								actions.addFavs(info.properties.name);
 							}}>
 							<i className="bi bi-heart" />
@@ -72,7 +59,7 @@ export const Character = props => {
 						<Button
 							className="btn btn-warning"
 							onClick={() => {
-								setFill(!fill);
+								// setFill(!fill);
 								actions.deleteFavs(info.properties.name);
 							}}>
 							<i className="bi bi-heart-fill" />

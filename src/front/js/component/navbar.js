@@ -14,9 +14,7 @@ export const Navbar = () => {
 				</span>
 			</Link>
 			<div className="ml-auto">
-
 				<FavouritesList />
-
 			</div>
 		</nav>
 	);

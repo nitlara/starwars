@@ -3,7 +3,7 @@ import React, { Component } from "react";
 export const Footer = () => (
 	<footer className="footer mt-auto py-3 text-center">
 		<p>
-			Made with <i className="fa fa-heart text-danger" /> by 2Geeks from 4Geeks Academy
+			Made with <i className="fa fa-heart text-danger" /> by 2 geeks from 4Geeks Academy
 		</p>
 	</footer>
 );
