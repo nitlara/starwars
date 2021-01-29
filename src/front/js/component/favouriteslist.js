@@ -22,7 +22,7 @@ export const FavouritesList = () => {
 	return (
 		<Dropdown>
 			<Dropdown.Toggle variant="success" id="dropdown-basic">
-				Favorites
+				Favorites <span className="badge badge-danger rounded-circle">{allFavs.length}</span>
 			</Dropdown.Toggle>
 
 			<Dropdown.Menu>{allFavs}</Dropdown.Menu>
