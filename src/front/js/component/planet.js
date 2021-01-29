@@ -21,8 +21,9 @@ export const Planet = props => {
 	const fill = store.favorites.find(element => element === props.name) !== undefined;
 
 	return (
-		<div>
+		<div className="d-flex flex-column individualcard">
 			<Card.Img
+				className="card-top-image"
 				variant="top"
 				src="https://cdn.computerhoy.com/sites/navi.axelspringer.es/public/styles/400x400/public/media/image/2020/02/yoda-star-wars-1859043.jpg?itok=I6udHO_e"
 			/>
@@ -30,40 +31,43 @@ export const Planet = props => {
 				<Card.Title className="text-dark">{info ? info.properties.name : ""}</Card.Title>
 				<Card.Text>
 					<ul className="text-left p-0">
-						<li className="text-dark list-unstyled">
+						<li className="text-dark list-unstyled justify-content-center">
 							Population : {info ? info.properties.population : ""}
 						</li>
-						<li className="text-dark list-unstyled">Diameter : {info ? info.properties.diameter : ""}</li>
-						<li className="text-dark list-unstyled">Climate : {info ? info.properties.climate : ""}</li>
+						<li className="text-dark list-unstyled justify-content-center">
+							Diameter : {info ? info.properties.diameter : ""}
+						</li>
+						<li className="text-dark list-unstyled text-justify justify-content-center">
+							Climate : {info ? info.properties.climate : ""}
+						</li>
 					</ul>
 				</Card.Text>
 			</Card.Body>
 
-			<Card.Footer className="d-flex justify-content-between bg-white border-0">
-				{clicked ? <Redirect to={`/single/${info.uid}`} /> : <></>}
+			<Card.Footer className="d-flex justify-content-between align-self-end bg-white border-0 w-100">
+				{clicked ? <Redirect to={`/singlecompplanets/${info.uid}`} /> : <></>}
 				<Button variant="outline-primary" onClick={() => setClicked(true)}>
 					{"Learn more!"}
 				</Button>
-				<div>
-					{!fill && (
-						<Button
-							className="btn btn-warning"
-							onClick={() => {
-								actions.addFavs(info.properties.name);
-							}}>
-							<i className="bi bi-heart" />
-						</Button>
-					)}
-					{fill && (
-						<Button
-							className="btn btn-warning"
-							onClick={() => {
-								actions.deleteFavs(info.properties.name);
-							}}>
-							<i className="bi bi-heart-fill" />
-						</Button>
-					)}
-				</div>
+
+				{!fill && (
+					<Button
+						className="btn btn-warning"
+						onClick={() => {
+							actions.addFavs(info.properties.name);
+						}}>
+						<i className="bi bi-heart" />
+					</Button>
+				)}
+				{fill && (
+					<Button
+						className="btn btn-warning"
+						onClick={() => {
+							actions.deleteFavs(info.properties.name);
+						}}>
+						<i className="bi bi-heart-fill" />
+					</Button>
+				)}
 			</Card.Footer>
 		</div>
 	);

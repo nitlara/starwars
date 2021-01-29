@@ -6,7 +6,9 @@ import { Home } from "./views/home";
 import { Crew } from "./views/crew";
 import { Planets } from "./views/planets";
 import { Starships } from "./views/starships";
-import { Single } from "./views/single";
+import { SingleCharacter } from "./views/singlechar";
+import { SinglePlanets } from "./views/singleplanets";
+import { SingleStarship } from "./views/singlestarships";
 import injectContext from "./store/appContext";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
@@ -26,11 +28,14 @@ const Layout = () => {
 						<Route exact path="/">
 							<Home />
 						</Route>
-						{/* <Route exact path="/demo">
-							<Demo />
-						</Route> */}
-						<Route exact path="/single/:id">
-							<Single />
+						<Route exact path="/singlecompcharacter/:id">
+							<SingleCharacter />
+						</Route>
+						<Route exact path="/singlecompplanets/:id">
+							<SinglePlanets />
+						</Route>
+						<Route exact path="/singlecompstarships/:id">
+							<SingleStarship />
 						</Route>
 						<Route exact path="/crew">
 							<Crew />

@@ -12,11 +12,11 @@ export const Home = () => {
 
 	return (
 		<div className="text-left text-danger">
-			<h1 className="titletext">Characters</h1>
+			<h1 className="titletext my-2">Characters</h1>
 			<Crew />
-			<h1 className="titletext">Planets</h1>
+			<h1 className="titletext my-2">Planets</h1>
 			<Planets />
-			<h1 className="titletext">Starships</h1>
+			<h1 className="titletext my-2">Starships</h1>
 			<Starships />
 		</div>
 	);

@@ -1,20 +1,33 @@
 .scrolling-wrapper {
   overflow-x: auto;
   overflow-y: hidden;
-  white-space: nowrap;
+  white-space: normal;
    
 }
 
 .individualcard {
-    width:200px!important;   
-    min-width:200px;
-    max-width:200px;
+    width:16vw!important; 
+    height: 350px;  
+    // min-width:200px; ¿PORQUE ESTAS DOS?
+    //max-width:200px;
     background-color: #fff;
-	border: none;
+	border: 1px;
 	background-position: center;
 	background-size: cover;
     border-radius: 24px;
-    
-
+    // word-wrap: break-word !important;
     }
+.card-text-li{
+    width: 200px;
+    display: inline-block;
+    overflow-wrap: break-word;
+}
+// .individualcard ul li{
+//     text-justify: auto;
+// }    
+
+.card-top-image {
+    width:100% !important; 
+    height: 110px !important;
+}
 
