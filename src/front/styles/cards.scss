@@ -8,23 +8,17 @@
 .individualcard {
     width:16vw!important; 
     height: 350px;  
-    // min-width:200px; ¿PORQUE ESTAS DOS?
-    //max-width:200px;
     background-color: #fff;
 	border: 1px;
 	background-position: center;
 	background-size: cover;
     border-radius: 24px;
-    // word-wrap: break-word !important;
     }
 .card-text-li{
     width: 200px;
     display: inline-block;
     overflow-wrap: break-word;
 }
-// .individualcard ul li{
-//     text-justify: auto;
-// }    
 
 .card-top-image {
     width:100% !important; 
