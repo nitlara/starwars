@@ -18,7 +18,6 @@ export const Character = props => {
 			});
 	}, []);
 
-
 	const fill = store.favorites.find(element => element === props.name) !== undefined;
 
 	return (

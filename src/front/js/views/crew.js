@@ -20,7 +20,7 @@ export const Crew = () => {
 			<div className="container">
 				<div className="scrolling-wrapper d-flex justify-content-between row flex-row flex-nowrap">
 					{listItems}
-					<Button variant="outline-primary" onClick={() => actions.getMoreCharacters()}>
+					<Button variant="outline-primary" onClick={() => actions.getCharacters()}>
 						{/* <-- llamada más caracteres no funciona aún ver flux */}
 						More characters
 					</Button>
