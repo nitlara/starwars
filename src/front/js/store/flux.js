@@ -7,7 +7,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			starships: [],
 			favorites: [],
 			fill: false,
-			characters2: []
+			characters2: ""
 		},
 
 		actions: {
@@ -19,9 +19,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(data => setStore({ characters: data.results, characters2: data.next }))
 					.catch(error => console.log("Error loading message from backend", error));
 			},
-
-			//ahora en characters2 ya se queda un enlace, ahora hace falta iterar el loop para que recoja todos los enlaces y cargue todos los datos conforme das a botón.
-
+		
+			getCharactersmore: () => {
+				let store = getStore();
+				var url = store.characters2;
+				fetch(url)
+					.then(resp => resp.json())
+                    .then(data => 
+                       let newStore = store.characters.push(data.results);
+                    setStore({ characters: newStore, characters2: data.next }))
+					.catch(error => console.log("Error loading message from backend", error));
+			},
+store.favorites.push(favorite);
 			getPlanets: () => {
 				// fetching data from the backend
 				fetch("https://www.swapi.tech/api/planets/")
