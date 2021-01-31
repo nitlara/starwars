@@ -50,7 +50,6 @@ export const Character = props => {
 						<Button
 							className="btn btn-warning"
 							onClick={() => {
-								// setFill(!fill);
 								actions.addFavs(info.properties.name);
 							}}>
 							<i className="bi bi-heart" />
@@ -60,7 +59,6 @@ export const Character = props => {
 						<Button
 							className="btn btn-warning"
 							onClick={() => {
-								// setFill(!fill);
 								actions.deleteFavs(info.properties.name);
 							}}>
 							<i className="bi bi-heart-fill" />
@@ -75,5 +73,6 @@ export const Character = props => {
 Character.propTypes = {
 	url: PropTypes.string,
 	uid: PropTypes.string,
-	name: PropTypes.string
+	name: PropTypes.string,
+	next: PropTypes.string
 };
