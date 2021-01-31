@@ -12,8 +12,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 		actions: {
 			getCharacters: () => {
-				// fetching data from the backend
+				// for (i = 0, i < results.uid.length, i++) {
+				//     var characters = characters2.next};
+
 				var url = "https://www.swapi.tech/api/people/";
+
 				fetch(url)
 					.then(resp => resp.json())
 					.then(data => setStore({ characters: data.results, characters2: data.next }))
@@ -37,10 +40,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.catch(error => console.log("Error loading message from backend", error));
 			},
 			// getNextPage: () => {
-			//     // fetching data from the backend
-			// 	fetch("https://www.swapi.tech/api/")
+			// 	var url = "https://www.swapi.tech/api/people/";
+			// 	fetch(url)
 			// 		.then(resp => resp.json())
-			// 		.then(data => setStore({ result: data.result.next }))
+			// 		.then(() => setStore(characters == characters2))
 			// 		.catch(error => console.log("Error loading message from backend", error));
 			// },
 			addFavs: favorite => {
