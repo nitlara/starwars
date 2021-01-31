@@ -21,7 +21,7 @@ export const Character = props => {
 	const fill = store.favorites.find(element => element === props.name) !== undefined;
 
 	return (
-		<div>
+		<div className="d-flex flex-column individualcard">
 			<Card.Img
 				className="card-top-image"
 				variant="top"

@@ -31,6 +31,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(data => setStore({ starships: data.results }))
 					.catch(error => console.log("Error loading message from backend", error));
 			},
+			// getNextPage: () => {
+			//     // fetching data from the backend
+			// 	fetch("https://www.swapi.tech/api/")
+			// 		.then(resp => resp.json())
+			// 		.then(data => setStore({ result: data.result.next }))
+			// 		.catch(error => console.log("Error loading message from backend", error));
+			// },
 			addFavs: favorite => {
 				//introduce el parametro
 				//get the store

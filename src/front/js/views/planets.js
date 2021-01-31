@@ -8,7 +8,7 @@ export const Planets = () => {
 	const { store, actions } = useContext(Context);
 
 	const listItemsPlanets = store.planets.map((c, index) => (
-		<Card className="text-left align-items-center flex-shrink-0 mr-3 my-1" key={index}>
+		<Card className="individualcard text-left align-items-center flex-shrink-0 mr-3 my-1" key={index}>
 			<Planet uid={c.uid} name={c.name} />
 		</Card>
 	));
