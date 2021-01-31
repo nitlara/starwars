@@ -3,7 +3,8 @@ import { Context } from "../store/appContext";
 import { Character } from "../component/character";
 import "../../styles/home.scss";
 import Card from "react-bootstrap/Card";
-import { CardDeck } from "react-bootstrap";
+import Button from "react-bootstrap/Button";
+import PropTypes from "prop-types";
 
 export const Crew = () => {
 	const { store, actions } = useContext(Context);
@@ -19,6 +20,10 @@ export const Crew = () => {
 			<div className="container">
 				<div className="scrolling-wrapper d-flex justify-content-between row flex-row flex-nowrap">
 					{listItems}
+					<Button variant="outline-primary" onClick={() => actions.getCharacters()}>
+						{/* <-- llamada más caracteres no funciona aún ver flux */}
+						More characters
+					</Button>
 				</div>
 			</div>
 		</div>
