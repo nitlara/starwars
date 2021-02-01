@@ -3,6 +3,7 @@ import { Context } from "../store/appContext";
 import { Starship } from "../component/starship";
 import "../../styles/home.scss";
 import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
 export const Starships = () => {
 	const { store, actions } = useContext(Context);
 
@@ -16,7 +17,10 @@ export const Starships = () => {
 		<div className="text-center mt-3">
 			<div className="container">
 				<div className="scrolling-wrapper d-flex justify-content-between row flex-row flex-nowrap">
-					{listItemsStar}
+					{listItemsStar}{" "}
+					<Button variant="outline-primary" onClick={() => actions.getStarshipsMore()}>
+						More starships
+					</Button>
 				</div>
 			</div>
 		</div>

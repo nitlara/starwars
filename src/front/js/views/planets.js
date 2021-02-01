@@ -3,6 +3,7 @@ import { Context } from "../store/appContext";
 import { Planet } from "../component/planet";
 import "../../styles/home.scss";
 import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
 
 export const Planets = () => {
 	const { store, actions } = useContext(Context);
@@ -17,7 +18,10 @@ export const Planets = () => {
 		<div className="text-center mt-3">
 			<div className="container">
 				<div className="scrolling-wrapper d-flex justify-content-between row flex-row flex-nowrap">
-					{listItemsPlanets}
+					{listItemsPlanets}{" "}
+					<Button variant="outline-primary" onClick={() => actions.getPlanetsMore()}>
+						More planets
+					</Button>
 				</div>
 			</div>
 		</div>

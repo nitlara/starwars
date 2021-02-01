@@ -42,7 +42,7 @@ export const Starship = props => {
 
 			<Card.Footer className="d-flex justify-content-between align-self-end bg-white border-0 w-100">
 				{clicked ? <Redirect to={`/singlecompstarships/${info.uid}`} /> : <></>}
-				<Button variant="outline-primary" onClick={() => setClicked(true)}>
+				<Button variant="outline-primary btn-sm" onClick={() => setClicked(true)}>
 					{"Learn more!"}
 				</Button>
 				<div>

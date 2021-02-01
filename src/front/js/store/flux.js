@@ -7,14 +7,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 			starships: [],
 			favorites: [],
 			fill: false,
-			characters2: []
+			characters2: "",
+			planets2: "",
+			starships2: ""
 		},
 
 		actions: {
 			getCharacters: () => {
-				// for (i = 0, i < results.uid.length, i++) {
-				//     var characters = characters2.next};
-
 				var url = "https://www.swapi.tech/api/people/";
 
 				fetch(url)
@@ -22,28 +21,49 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(data => setStore({ characters: data.results, characters2: data.next }))
 					.catch(error => console.log("Error loading message from backend", error));
 			},
+			getCharactersMore: () => {
+				let store = getStore();
+				var url = store.characters2;
 
+				fetch(url)
+					.then(resp => resp.json())
+					.then(data =>
+						setStore({ characters: store.characters.concat(data.results), characters2: data.next })
+					)
+					.catch(error => console.log("Error loading message from backend", error));
+			},
 			getPlanets: () => {
 				// fetching data from the backend
 				fetch("https://www.swapi.tech/api/planets/")
 					.then(resp => resp.json())
-					.then(data => setStore({ planets: data.results }))
+					.then(data => setStore({ planets: data.results, planets2: data.next }))
+					.catch(error => console.log("Error loading message from backend", error));
+			},
+			getPlanetsMore: () => {
+				let store = getStore();
+				var url = store.planets2;
+
+				fetch(url)
+					.then(resp => resp.json())
+					.then(data => setStore({ planets: store.planets.concat(data.results), planets2: data.next }))
 					.catch(error => console.log("Error loading message from backend", error));
 			},
 			getStarships: () => {
 				// fetching data from the backend
 				fetch("https://www.swapi.tech/api/starships/")
 					.then(resp => resp.json())
-					.then(data => setStore({ starships: data.results }))
+					.then(data => setStore({ starships: data.results, starships2: data.next }))
 					.catch(error => console.log("Error loading message from backend", error));
 			},
-			// getNextPage: () => {
-			// 	var url = "https://www.swapi.tech/api/people/";
-			// 	fetch(url)
-			// 		.then(resp => resp.json())
-			// 		.then(() => setStore(characters == characters2))
-			// 		.catch(error => console.log("Error loading message from backend", error));
-			// },
+			getStarshipsMore: () => {
+				let store = getStore();
+				var url = store.starships2;
+
+				fetch(url)
+					.then(resp => resp.json())
+					.then(data => setStore({ starships: store.starships.concat(data.results), starships2: data.next }))
+					.catch(error => console.log("Error loading message from backend", error));
+			},
 			addFavs: favorite => {
 				//get the store
 				let store = getStore(); //traes store disponible

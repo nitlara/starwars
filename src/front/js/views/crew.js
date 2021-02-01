@@ -4,7 +4,6 @@ import { Character } from "../component/character";
 import "../../styles/home.scss";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import PropTypes from "prop-types";
 
 export const Crew = () => {
 	const { store, actions } = useContext(Context);
@@ -18,9 +17,9 @@ export const Crew = () => {
 	return (
 		<div className="text-center mt-3">
 			<div className="container">
-				<div className="scrolling-wrapper d-flex justify-content-between row flex-row flex-nowrap">
+				<div className="scrolling-wrapper d-flex justify-content-between row flex-row flex-nowrap containercards">
 					{listItems}
-					<Button variant="outline-primary" onClick={() => actions.getCharacters()}>
+					<Button variant="outline-primary" onClick={() => actions.getCharactersMore()}>
 						More characters
 					</Button>
 				</div>
