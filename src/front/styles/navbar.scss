@@ -1,8 +1,10 @@
 
 .insidecontainer-nav{
-    width:70%;
+    width: 60%;
     margin:auto;
     display:flex;
+    justify-content: space-between;
+    
 }
 
 .navbar-brand img{
@@ -16,6 +18,7 @@
 .favresume{
     display : inline-flex;
     justify-content:end;
-     align-self:center;
+    align-self:center;
+    margin-right: 15px;
 }
 

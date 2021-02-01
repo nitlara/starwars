@@ -14,14 +14,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 		actions: {
 			getCharacters: () => {
-				// fetching data from the backend
 				var url = "https://www.swapi.tech/api/people/";
+
 				fetch(url)
 					.then(resp => resp.json())
 					.then(data => setStore({ characters: data.results, characters2: data.next }))
 					.catch(error => console.log("Error loading message from backend", error));
 			},
-
 			getCharactersMore: () => {
 				let store = getStore();
 				var url = store.characters2;
@@ -33,7 +32,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					)
 					.catch(error => console.log("Error loading message from backend", error));
 			},
-
 			getPlanets: () => {
 				// fetching data from the backend
 				fetch("https://www.swapi.tech/api/planets/")
