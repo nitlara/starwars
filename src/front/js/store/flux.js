@@ -23,8 +23,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.catch(error => console.log("Error loading message from backend", error));
 			},
 
-			//ahora en characters2 ya se queda un enlace, ahora hace falta iterar el loop para que recoja todos los enlaces y cargue todos los datos conforme das a botón.
-
 			getPlanets: () => {
 				// fetching data from the backend
 				fetch("https://www.swapi.tech/api/planets/")
