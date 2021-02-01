@@ -13,7 +13,9 @@ export const Home = () => {
 	return (
 		<div className="text-left text-danger">
 			<h1 className="titletext my-2">Characters</h1>
-			<Crew />
+			<div className="container-fluid">
+				<Crew />
+			</div>
 			<h1 className="titletext my-2">Planets</h1>
 			<Planets />
 			<h1 className="titletext my-2">Starships</h1>

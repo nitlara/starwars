@@ -42,7 +42,7 @@ export const Character = props => {
 
 			<Card.Footer className="d-flex justify-content-between bg-white border-0">
 				{clicked ? <Redirect to={`/singlecompcharacter/${info.uid}`} /> : <></>}
-				<Button variant="outline-primary" onClick={() => setClicked(true)}>
+				<Button variant="outline-primary btn-sm" onClick={() => setClicked(true)}>
 					{"Learn more!"}
 				</Button>
 				<div>

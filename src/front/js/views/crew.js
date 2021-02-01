@@ -17,10 +17,9 @@ export const Crew = () => {
 	return (
 		<div className="text-center mt-3">
 			<div className="container">
-				<div className="scrolling-wrapper d-flex justify-content-between row flex-row flex-nowrap">
+				<div className="scrolling-wrapper d-flex justify-content-between row flex-row flex-nowrap containercards">
 					{listItems}
 					<Button variant="outline-primary" onClick={() => actions.getCharactersMore()}>
-						{/* <-- llamada más caracteres no funciona aún ver flux */}
 						More characters
 					</Button>
 				</div>
